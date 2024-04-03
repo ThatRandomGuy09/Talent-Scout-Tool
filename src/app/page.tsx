@@ -2,11 +2,11 @@ import { db } from "@/db";
 import React from "react";
 
 export default async function Home() {
-  const items = await db.query.testing.findMany();
+  const rooms = await db.query.room.findMany();
   return (
     <div>
-      {items.map((item) => {
-        return <div key={item.id}>{item.name}</div>;
+      {rooms.map((room) => {
+        return <div key={room.name}>{room.name}</div>;
       })}
     </div>
   );
