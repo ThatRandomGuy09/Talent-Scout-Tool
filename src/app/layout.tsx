@@ -8,7 +8,7 @@ import NextTopLoader from "nextjs-toploader";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Dev-Finder",
+  title: "Lang-Loom",
   description: "Dev-Finder",
 };
 
