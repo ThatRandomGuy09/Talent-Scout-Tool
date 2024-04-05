@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { db } from "@/db";
 import Link from "next/link";
 import {
   Card,
@@ -11,7 +10,7 @@ import {
 } from "@/components/ui/card";
 import { Room } from "@/db/schema";
 import { GithubIcon } from "lucide-react";
-import { getRooms } from "@/data-access/room";
+import { getRooms } from "@/data-access/rooms";
 
 function RoomCard({ room }: { room: Room }) {
   return (
@@ -35,7 +34,7 @@ function RoomCard({ room }: { room: Room }) {
       </CardContent>
       <CardFooter>
         <Button asChild>
-          <Link href={`/room/${room.id}`}>Join Room </Link>
+          <Link href={`/rooms/${room.id}`}>Join Room </Link>
         </Button>
       </CardFooter>
     </Card>
@@ -53,12 +52,10 @@ export default async function Home() {
         </Button>
       </div>
 
-
       <div className="grid grid-cols-3 gap-4">
-
-      {rooms.map((room) => {
-        return <RoomCard key={room.id} room={room} />;
-      })}
+        {rooms.map((room) => {
+          return <RoomCard key={room.id} room={room} />;
+        })}
       </div>
     </main>
   );
