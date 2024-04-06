@@ -102,7 +102,7 @@ export function Header() {
           className="flex gap-2 items-center text-xl hover:underline"
         >
           <Image
-            src="/icon.png"
+            src="/iconn.png"
             width="60"
             height="60"
             alt="the application icon of a magnifying glass"
