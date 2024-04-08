@@ -33,9 +33,10 @@ export function DevFinderVideo({ room }: { room: Room }) {
     const userId = session.data?.user.id;
     const client = new StreamVideoClient({
       apiKey,
-      user: { id: userId, 
-       name:session.data.user.name ?? undefined,
-       image: session.data.user.image ?? undefined,
+      user: {
+        id: userId,
+        name: session.data.user.name ?? undefined,
+        image: session.data.user.image ?? undefined,
       },
       tokenProvider: () => generateTokenAction(),
     });
@@ -45,8 +46,12 @@ export function DevFinderVideo({ room }: { room: Room }) {
     setCall(call);
 
     return () => {
-      call.leave();
-      client.disconnectUser();
+      call
+        .leave()
+        .then(() => {
+          client.disconnectUser();
+        })
+        .catch((e) => console.error(e));
     };
   }, [session, room]);
 
@@ -57,7 +62,11 @@ export function DevFinderVideo({ room }: { room: Room }) {
         <StreamTheme>
           <StreamCall call={call}>
             <SpeakerLayout />
-            <CallControls />
+            <CallControls
+              onLeave={() => {
+                router.push("/");
+              }}
+            />
             <CallParticipantsList onClose={() => undefined} />
           </StreamCall>
         </StreamTheme>
