@@ -12,6 +12,7 @@ import { Room } from "@/db/schema";
 import { GithubIcon } from "lucide-react";
 import { getRooms } from "@/data-access/rooms";
 import { SearchBar } from "./search-bar";
+import { splitTags, TagsList } from "@/components/tags-list";
 
 function RoomCard({ room }: { room: Room }) {
   return (
@@ -32,6 +33,7 @@ function RoomCard({ room }: { room: Room }) {
             Github Project
           </Link>
         )}
+        {/* <TagsList tags={splitTags(room.tags)} /> */}
       </CardContent>
       <CardFooter>
         <Button asChild>

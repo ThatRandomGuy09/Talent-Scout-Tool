@@ -1,4 +1,4 @@
-import { TagsList } from "@/components/tags-list";
+import { splitTags, TagsList } from "@/components/tags-list";
 import { Badge } from "@/components/ui/badge";
 import { getRoom } from "@/data-access/rooms";
 import { GithubIcon } from "lucide-react";
@@ -13,8 +13,6 @@ export default async function RoomPage(props: { params: { roomId: string } }) {
   if (!room) {
     return <div>No room of this ID found</div>;
   }
-
-  const tags = room.tags.split(",").map((tag) => tag.trim());
 
   return (
     <div className="grid grid-cols-4 min-h-screen">
@@ -39,7 +37,7 @@ export default async function RoomPage(props: { params: { roomId: string } }) {
           )}
           <p className="text-base text-gray-600">{room?.description}</p>
 
-          <TagsList tags={tags} />
+          {/* <TagsList tags={splitTags(room.tags)} /> */}
         </div>
       </div>
     </div>
