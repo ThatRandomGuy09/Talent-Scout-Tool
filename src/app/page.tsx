@@ -14,6 +14,7 @@ import { getRooms } from "@/data-access/rooms";
 import { SearchBar } from "./search-bar";
 import { splitTags, TagsList } from "@/components/tags-list";
 import { RoomCard } from "@/components/room-card";
+import { unstable_noStore } from "next/cache";
 
 export default async function Home({
   searchParams,
@@ -22,6 +23,7 @@ export default async function Home({
     search: string;
   };
 }) {
+  unstable_noStore();
   const rooms = await getRooms(searchParams.search);
   return (
     <main className="min-h-screen p-16">
