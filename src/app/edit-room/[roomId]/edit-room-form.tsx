@@ -17,7 +17,7 @@ import { Input } from "@/components/ui/input";
 import { editRoomAction } from "./action";
 import { useParams } from "next/navigation";
 import { Room } from "@/db/schema";
-// import { toast } from "@/components/ui/use-toast";
+import { toast } from "@/components/ui/use-toast";
 
 const formSchema = z.object({
   name: z.string().min(1).max(50),
@@ -43,10 +43,10 @@ export function EditRoomForm({ room }: { room: Room }) {
       id: params.roomId as string,
       ...values,
     });
-    // toast({
-    //   title: "Room Updated",
-    //   description: "Your room was successfully updated",
-    // });
+    toast({
+      title: "Room Updated",
+      description: "Your room was successfully updated",
+    });
   }
 
   return (
