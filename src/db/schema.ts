@@ -10,11 +10,6 @@ import type { AdapterAccount } from "@auth/core/adapters";
 import { Languages } from "lucide-react";
 import { sql } from "drizzle-orm";
 
-export const testing = pgTable("testing", {
-  id: text("id").notNull().primaryKey(),
-  name: text("name").notNull(),
-});
-
 export const users = pgTable("user", {
   id: text("id").notNull().primaryKey(),
   name: text("name"),
@@ -80,6 +75,5 @@ export const room = pgTable("room", {
   tags: text("tags").notNull(),
   githubRepo: text("githubRepo"),
 });
-
 
 export type Room = typeof room.$inferSelect;
