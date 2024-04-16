@@ -13,7 +13,7 @@ import {
 import "@stream-io/video-react-sdk/dist/css/styles.css";
 import { Room } from "@/db/schema";
 import { useSession } from "next-auth/react";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { generateTokenAction } from "./action";
 

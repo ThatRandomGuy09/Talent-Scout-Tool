@@ -1,5 +1,3 @@
-import { sessions } from "./../db/schema";
-import { SearchIcon } from "lucide-react";
 import { db } from "@/db";
 import { Room, room } from "@/db/schema";
 import { eq } from "drizzle-orm";

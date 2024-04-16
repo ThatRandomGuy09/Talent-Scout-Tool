@@ -1,6 +1,5 @@
 import { TagsList } from "@/components/tags-list";
 import { splitTags } from "@/lib/utils";
-import { Badge } from "@/components/ui/badge";
 import { getRoom } from "@/data-access/rooms";
 import { GithubIcon } from "lucide-react";
 import Link from "next/link";

@@ -7,7 +7,6 @@ import {
   uuid,
 } from "drizzle-orm/pg-core";
 import type { AdapterAccount } from "@auth/core/adapters";
-import { Languages } from "lucide-react";
 import { sql } from "drizzle-orm";
 
 export const users = pgTable("user", {

@@ -11,8 +11,7 @@ import {
 } from "@/components/ui/card";
 import { Room } from "@/db/schema";
 import { GithubIcon, PencilIcon, TrashIcon } from "lucide-react";
-import { TagsList } from "@/components/tags-list";
-// import { splitTags } from "@/lib/utils";
+
 import {
   AlertDialog,
   AlertDialogAction,
@@ -25,6 +24,8 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { deleteRoomAction } from "./action";
+import { TagsList } from "@/components/tags-list";
+import { splitTags } from "@/lib/utils";
 
 export function UserRoomCard({ room }: { room: Room }) {
   return (
@@ -39,7 +40,7 @@ export function UserRoomCard({ room }: { room: Room }) {
         <CardDescription>{room.description}</CardDescription>
       </CardHeader>
       <CardContent className="flex flex-col gap-4">
-        {/* <TagsList tags={splitTags(room.tags)} /> */}
+        <TagsList tags={splitTags(room.tags)} />
         {room.githubRepo && (
           <Link
             href={room.githubRepo}
