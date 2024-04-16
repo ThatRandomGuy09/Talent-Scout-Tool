@@ -1,4 +1,5 @@
-import { splitTags, TagsList } from "@/components/tags-list";
+import { TagsList } from "@/components/tags-list";
+import { splitTags } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { getRoom } from "@/data-access/rooms";
 import { GithubIcon } from "lucide-react";
@@ -39,7 +40,7 @@ export default async function RoomPage(props: { params: { roomId: string } }) {
           )}
           <p className="text-base text-gray-600">{room?.description}</p>
 
-          {/* <TagsList tags={splitTags(room.tags)} /> */}
+          <TagsList tags={splitTags(room.tags)} />
         </div>
       </div>
     </div>
