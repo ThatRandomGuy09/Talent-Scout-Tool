@@ -4,10 +4,11 @@ import { useRouter } from "next/navigation";
 import { badgeVariants } from "./ui/badge";
 import { cn } from "@/lib/utils";
 
-export function splitTags(tags: string) {
-  return tags.split(",").map((tag) => tag.trim());
 
+export function splitTags(tags: string) {
+  return tags.split(",").map((tag)=> tag.trim());
 }
+
 export function TagsList({ tags }: { tags: string[] }) {
   const router = useRouter();
   return (
@@ -17,7 +18,7 @@ export function TagsList({ tags }: { tags: string[] }) {
           className={cn(badgeVariants())}
           key={tag}
           onClick={() => {
-            // router.push(`/browse?search=${tag}`);
+            router.push(`/browse?search=${tag}`);
           }}
         >
           {tag}

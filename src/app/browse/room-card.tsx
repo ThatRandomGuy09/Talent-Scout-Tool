@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import {
@@ -12,7 +12,7 @@ import {
 import { Room } from "@/db/schema";
 import { GithubIcon } from "lucide-react";
 import { getRooms } from "@/data-access/rooms";
-import { SearchBar } from "../app/search-bar";
+import { SearchBar } from "./search-bar";
 import { splitTags, TagsList } from "@/components/tags-list";
 
 export function RoomCard({ room }: { room: Room }) {
@@ -26,7 +26,7 @@ export function RoomCard({ room }: { room: Room }) {
         {room.githubRepo && (
           <Link
             href={room.githubRepo}
-            className="flex items-center gap-2"
+            className="flex items-center gap-2 mb-4"
             target="blank"
             rel="noopener noreferrer"
           >
@@ -34,7 +34,7 @@ export function RoomCard({ room }: { room: Room }) {
             Github Project
           </Link>
         )}
-        {/* <TagsList tags={splitTags(room.tags)} /> */}
+        <TagsList tags={splitTags(room.tags)} />
       </CardContent>
       <CardFooter>
         <Button asChild>
